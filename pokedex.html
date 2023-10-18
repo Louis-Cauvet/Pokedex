@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Pokedex - Louis Cauvet</title>
+        <link rel="stylesheet" type="text/css" href="pokedex_style.css">
+        <link rel="icon" type="image/x-icon" href="../../img/favicon louis cauvet.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="HTML,CSS,JS,pokedex">
+        <meta name="description" content="Entrainement personnel au JavaScript consistant à développer un pokedex en intreeaction avec une API pour afficher n'importe quel pokemon">
+        <meta name="author" content="Louis Cauvet">
+    </head>
+
+    <body>
+        <header>
+            <a id="retourPortfolio" href="../..">Cliquez sur ce lien pour revenir à mon portfolio</a>
+        </header>
+        <div id="titre">Pokedex en ligne</div>
+        <div id="corpsPage">
+            <div id="zonePokedex">
+                <div id="zoneRechercheListe">
+                    <div id="champRecherche">
+                        <input id="saisieRecherche" type="number" name="zoneSaisie" min="1" max="1008" placeholder="Chercher un #">
+                        <button id="valideRecherche" type="button" onclick="effectuerRecherche()">
+                            <i class="fa fa-search"></i>
+                        </button>      
+                    </div> 
+                    <button id="boutonListe">
+                        <i class="fa fa-list"></i>
+                    </button>
+                </div>
+                <div id="zonePresentationPokemon">
+                    <button id="pokemonPrecedent" class="fa fa-caret-left" onclick="pokePrecedent()"></button>
+                    <div id="zoneAffichagePokemon">
+                        <div id="affichagePokemon">
+                            <div id="numPokemon"></div>
+                            <img id="spriteNormalPokemon" src="" alt="sprite normal du pokemon">
+                            <img id="spriteShinyPokemon" src="" alt="sprite chromatique du pokemon">
+                        </div>
+                        <div id="nomPokemon"></div>
+                    </div>
+                    <button id="pokemonSuivant" class="fa fa-caret-right" onclick="pokeSuivant()"></button>
+                </div>
+                <div id="zoneInfosPokemon">
+                    <div id="zoneChromaTypes">
+                        <button id="boutonChroma">Forme shiny</button>
+                        <div id="typesPokemon">
+                            <div id="type1" class="typePokemon"></div>
+                            <div id="type2" class="typePokemon"></div>
+                        </div>
+                    </div>
+                    <div id="zoneTalents">
+                        <div id="titreTalents">Capacités spéciales</div>
+                        <div id="talentsPokemon">
+                            <div id="talentPokemon1"></div>
+                            <div id="talentPokemon2"></div>
+                        </div>
+                    </div>
+                    <div id="zonePoidsTaille">
+                        <div id="zoneTaille">
+                            <div id="titreTaille">Taille</div>
+                            <div id="taillePokemon"></div>
+                        </div>
+                        <div id="zonePoids">
+                            <div id="titrePoids">Poids</div>
+                            <div id="poidsPokemon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="zoneListePokemons">
+                <div id="zoneFiltres">
+                    <div id="titreFiltres">Filtrer</div>
+                    <div class="filtresListe">
+                        <div class="intituleFiltre">Par type</div>
+                        <div class="intituleFiltre">Par génération</div>
+                    </div>
+                    <div class="filtresListe">
+                        <select name="filtreType" id="filtreType">
+                            <option value="">--</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Plante">Plante</option>
+                            <option value="Feu">Feu</option>
+                            <option value="Eau">Eau</option>
+                            <option value="Électrik">Électrik</option>
+                            <option value="Vol">Vol</option>
+                            <option value="Roche">Roche</option>
+                            <option value="Sol">Sol</option>
+                            <option value="Insecte">Insecte</option>
+                            <option value="Poison">Poison</option>
+                            <option value="Psy">Psy</option>
+                            <option value="Combat">Combat</option>
+                            <option value="Spectre">Spectre</option>
+                            <option value="Glace">Glace</option>
+                            <option value="Acier">Acier</option>
+                            <option value="Ténèbres">Ténèbres</option>
+                            <option value="Dragon">Dragon</option>
+                            <option value="Fée">Fée</option>
+                        </select>
+                        <select name="filtreGeneration" id="filtreGeneration">
+                            <option value="">--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="listePokemons">
+                </div>
+            </div>
+        </div>
+
+        <script src="pokedex_script.js" type="text/javascript"></script>
+        <noscript>Désolé, votre navigateur ne prend pas en charge le Javascript</noscript>
+    </body>
